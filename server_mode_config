@@ -1,0 +1,9 @@
+ui=true
+storage "file" {
+  path = "C:/Users/m1062222/OneDrive - Granicus/Documents/My_Projects/TerraformVault/data"
+}
+
+listener "tcp" {
+  address     = "127.0.0.1:8200"
+  tls_disable = 1
+}
