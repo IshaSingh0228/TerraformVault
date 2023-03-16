@@ -17,8 +17,10 @@ Create an EC2 Instance with a short-lived credential
 
 
 
-*docs to refer*: https://developer.hashicorp.com/vault <br />
-                 https://developer.hashicorp.com/vault/api-docs/auth/aws?_ga=2.50646189.586193662.1678718510-466124567.1678718510#aws-auth-method-api <br />
-                 https://registry.terraform.io/providers/hashicorp/vault/latest/docs <br />
- *YouTube videos*: https://www.youtube.com/watch?v=-EHmM5ocUsM&list=PLFkEchqXDZx7CuMTbxnlGVflB7UKwf_N3&index=4 <br />
-                   https://www.youtube.com/watch?v=wfGzOduNoas&list=WL&index=3  <br />
+*docs to refer*: <br /> 
+                - https://developer.hashicorp.com/vault <br />
+                - https://developer.hashicorp.com/vault/api-docs/auth/aws?_ga=2.50646189.586193662.1678718510-466124567.1678718510#aws-auth-method-api <br />
+                - https://registry.terraform.io/providers/hashicorp/vault/latest/docs <br />
+ *YouTube videos*: <br /> 
+                - https://www.youtube.com/watch?v=-EHmM5ocUsM&list=PLFkEchqXDZx7CuMTbxnlGVflB7UKwf_N3&index=4 <br />
+                - https://www.youtube.com/watch?v=wfGzOduNoas&list=WL&index=3  <br />
