@@ -1,19 +1,19 @@
-We must be familiar with IaC tool To provision and configure infrastructure, we use configuration files in Terraform.
-Whenever we create resources such as EC2 instances, S3 buckets, or databases, it is necessary to configure the AWS_ACCESS_KEY, AWS_SECRET_KEY, and region so 
+We must be familiar with IaC tool, terraform that uses configuration files to provision and configure infrastructure.
+Whenever we create resources such as EC2 instances, S3 buckets, or databases, it is necessary to configure the aws_access_key, aws_secret_key, and region so 
 that Terraform can use these credentials to set up the provider that we specify.
 
-Although *aws configure* or a text file can be used to pass credentials, it is strongly discouraged from a security perspective. These long-lived static credentials 
-can cause significant damage if they are leaked. Therefore, a better solution is needed that can generate short-lived credentials dynamically,which can expire and enhance security.
+Although *aws configure* or a text file can be used to set/pass credentials, it is strongly discouraged from a security perspective. These long-lived static credentials 
+can cause significant damage if they are leaked. Therefore, a better solution is needed that can generate short-lived credentials dynamically, which can expire and enhance security.
 
-**Hashicorp Vault** is a widely used cloud-agnostic system for managing secrets. It provides identity-based encryption and secrets management capabilities. 
+**Hashicorp Vault** is a widely used cloud-agnostic system for managing secrets. It provides identity-based encryption and secret management capabilities. 
 In other words, Vault ensures that clients (such as users, machines, or applications)are authorized and validated before granting them access to sensitive data or secrets stored within the system.
-Common Secrets that can be stores are username and password, certificates, SSH keys, API keys and others.
+Common Secrets that can be stored are usernames and passwords, certificates, SSH keys, API keys, and others.
 
 Use Cases
 ----------------
 1. Static and Dynamic Secrets
 2. Data Encryption
-3. Identity based Access
+3. Identity-based Access
 4. Key Management
 
 Ways to Use Vault
@@ -24,17 +24,17 @@ Ways to Use Vault
 
 ## Install Vault: 
 
-  - Vault can be installed either on a local development or on virtual machine <br />
+  - Vault can be installed either on a local development or on the virtual machine <br />
   - Link to install : https://developer.hashicorp.com/vault/docs/install <br /> 
-	- Check installation : ``` vault -v ```
+	- Check installation: ``` vault -v ```
 	- After installing Vault, the server can be started in two modes: **Dev Mode** and **Server Mode**  <br /> 
 	
 	
 DEV Mode
 ---------
-- To Start vault in dev mode run: ``` vault server -dev ```
-- Explore cmds option available: ``` vault server -dev --help ```
-- You should see the following logs onto your console
+- To start the vault in dev mode run: ``` vault server -dev ```
+- Explore cmd options available: ``` vault server -dev --help ```
+- You should see the following logs on your console
 ```
 $ vault server -dev
 ==> Vault server configuration:
@@ -91,7 +91,7 @@ HA Enabled      false
 
 1. *Initialized and unsealed* - The server will be automatically initialized and unsealed. 
 You don't need to use "vault operator unseal".
-2. *In-memory storage* - All data is stored (encrypted) in-memory. Therefor, not recommended for production use.
+2. *In-memory storage* - All data is stored (encrypted) in-memory. Therefore, not recommended for production use.
 3. *Bound to local address without TLS* - The server is listening on 127.0.0.1:8200 (the default server address) without TLS.
 4. *Automatically Authenticated* - The server stores your root access token so vault CLI access is ready to go. 
 		If you are accessing Vault via the API, you'll need to authenticate using the token printed out.
@@ -101,7 +101,7 @@ You don't need to use "vault operator unseal".
 Server Mode
 -----------
 - To start the server in Server mode, run command: ``` vault server -config=<path_to_file> ``` <br />
-  This mode is recommended for a non-development environment, stage or production environemnt. It requires a configuration file, which can be either HCL or JSON format. 
+  This mode is recommended for a non-development environment, stage, or production environmnt. It requires a configuration file, which can be either HCL or JSON format. 
   Example of how the configuration file can be structured
 ```
 ui=true
@@ -136,11 +136,11 @@ HA Enabled         false
 ```
  - To initialize the vault, run: ``` vault operator init -key-shares=5 -key-threshold=3 ```
    Here, I am initializing it with *5 unseal keys* and atleast *2 keys* to unseal the vault
-   At the time of initialization, we will get two information
+   At the time of initialization, we will get two pieces of information
     - Root Token 
     - Unseal keys 
  - Once initialization is completed, you will receive 5 keys and a Root Token. Make sure to copy them and keep it secure.
- - Run ``` vault status ``` again, and you will see * Initialization status* set to true, and total key shares and threadhold keys values are set.
+ - Run ``` vault status ``` again, and you will see * Initialization status* set to true, and total key shares and threshold keys values are set.
 
 ```
 $ vault status
@@ -159,7 +159,7 @@ Storage Type       file
 HA Enabled         false
 ```
  - The vault is still sealed, to UnSeal the vault run: ``` vault operator unseal ```
-   Give the unseal keys, you will see the *Unseal Progress* line been updated. 
+   Give the unseal keys and you will see the *Unseal Progress* line being updated. 
    Run the unseal command again, providing different keys from the shared keys until the threshold is reached. Vault is now unsealed and ready.
    
 ```
