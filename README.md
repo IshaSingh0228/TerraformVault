@@ -26,3 +26,6 @@
  *YouTube videos*: <br /> 
                 - https://www.youtube.com/watch?v=-EHmM5ocUsM&list=PLFkEchqXDZx7CuMTbxnlGVflB7UKwf_N3&index=4 <br />
                 - https://www.youtube.com/watch?v=wfGzOduNoas&list=WL&index=3  <br />
+*GitLab With Vault*: <br />
+                - https://blog.revolve.team/2023/03/23/securing-your-terraform-deployment-on-aws-via-gitlab-ci-and-vault-part-2/
+                - https://holdmybeersecurity.com/2021/03/04/gitlab-ci-cd-pipeline-with-vault-secrets/
