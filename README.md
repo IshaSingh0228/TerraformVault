@@ -2,7 +2,7 @@
 
 ##### Assuming that vault is up and running
 
-#### Creating AWS Secret Engine using Vault CLI
+### METHOD 1: Creating AWS Secret Engine using Vault CLI
 
 1. Enable the AWS secrets engine with the following command:
 ```
@@ -57,7 +57,7 @@ This access-key and secret-key then can be used in terraform to create EC2 in aw
 5. In the AWS Console these users will show up with the user name of ```vault-token-$role-$timestamp``` i.e vault-root-my-role-1690204287-5354, which will have the attached policy my-role to access ec2 instance in AWS.
 
     
-#### Create Vault Backend & IAM Role using Terraform
+### METHOD 2: Create Vault Backend & IAM Role using TERRAFORM
 
 1. Configure the credentials required to make AWS API calls and Configure the policies on the role. 
     Check file:  _iam_role -> resoure.tf_
