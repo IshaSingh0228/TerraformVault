@@ -2,6 +2,8 @@
 
 ##### Assuming that vault is up and running
 
+Tools: Terraform v1.5.1, Vault v1.6.2
+
 ### METHOD 1: Creating AWS Secret Engine using Vault CLI
 
 1. Enable the AWS secrets engine with the following command:
