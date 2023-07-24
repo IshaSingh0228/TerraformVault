@@ -1,1 +1,0 @@
-Error: configuring Terraform AWS Provider: no valid credential sources for Terraform AWS Provider found.
