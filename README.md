@@ -5,12 +5,15 @@
 #### Creating AWS Secret Engine using Vault CLI
 
 1. Enable the AWS secrets engine with the following command:
-    ```$vault secrets enable -path=aws aws
-   Output: Success! Enabled the aws secrets engine at: aws/'''
+'''
+   $vault secrets enable -path=aws aws
+   Output: Success! Enabled the aws secrets engine at: aws/
+'''
 2. Create a USER with the correct permissions specific for Vault in AWS and configure like below:
     ```vault write aws/config/root access_key=<access-key> secret_key=<secret-key> region=<region>
    Success! Data written to: aws/config/root```
-3. Create a role policy(my-role), which will be used to generate user credentials against this role or specify policy ARNs 
+
+4. Create a role policy(my-role), which will be used to generate user credentials against this role or specify policy ARNs 
 ```vault write aws/roles/my-role \
         credential_type=iam_user \
         policy_document=-<<EOF
