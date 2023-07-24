@@ -52,8 +52,12 @@ OUTPUT: Success! Data written to: aws/roles/my-role
    secret_key         5*********iC
    security_token     <nil>
 ```
+This access-key and secret-key then can be used in terraform to create EC2 in aws
 
-#### Create Vault Backend & IAM Role uding Terraform
+5. In the AWS Console these users will show up with the user name of ```vault-token-$role-$timestamp``` i.e vault-root-my-role-1690204287-5354, which will have the attached policy my-role to access ec2 instance in AWS.
+
+    
+#### Create Vault Backend & IAM Role using Terraform
 
 1. Configure the credentials required to make AWS API calls and Configure the policies on the role. 
     Check file:  _iam_role -> resoure.tf_
