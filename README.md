@@ -5,16 +5,20 @@
 #### Creating AWS Secret Engine using Vault CLI
 
 1. Enable the AWS secrets engine with the following command:
-'''
+```
    $vault secrets enable -path=aws aws
-   Output: Success! Enabled the aws secrets engine at: aws/
-'''
-2. Create a USER with the correct permissions specific for Vault in AWS and configure like below:
-    ```vault write aws/config/root access_key=<access-key> secret_key=<secret-key> region=<region>
-   Success! Data written to: aws/config/root```
+```
+Output: Success! Enabled the aws secrets engine at: aws/
 
-4. Create a role policy(my-role), which will be used to generate user credentials against this role or specify policy ARNs 
-```vault write aws/roles/my-role \
+2. Create a USER with the correct permissions specific for Vault in AWS and configure like below:
+  ```
+    $vault write aws/config/root access_key=<access-key> secret_key=<secret-key> region=<region>
+```
+OUTPUT: Success! Data written to: aws/config/root
+
+3. Create a role policy(my-role), which will be used to generate user credentials against this role or specify policy ARNs 
+```
+$vault write aws/roles/my-role \
         credential_type=iam_user \
         policy_document=-<<EOF
 {
@@ -33,20 +37,21 @@
   ]
 }
 EOF
-Success! Data written to: aws/roles/my-role```
+```
+OUTPUT: Success! Data written to: aws/roles/my-role
 
 4. Vault will create an IAM user and attach the policy (my-role) to the user. Vault then creates and returns an access key and secret key for the user.
-'''
-vault read aws/creds/my-role
-Key                Value
----                -----
-lease_id           aws/creds/my-role/GtFr97NplvTPB45jqAxZNPk2
-lease_duration     768h
-lease_renewable    true
-access_key         A********I7
-secret_key         5*********iC
-security_token     <nil>
-'''
+```
+   $vault read aws/creds/my-role
+   Key                Value
+   ---                -----
+   lease_id           aws/creds/my-role/GtFr97NplvTPB45jqAxZNPk2
+   lease_duration     768h
+   lease_renewable    true
+   access_key         A********I7
+   secret_key         5*********iC
+   security_token     <nil>
+```
 
 #### Create Vault Backend & IAM Role uding Terraform
 
