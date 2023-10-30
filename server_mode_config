@@ -1,6 +1,6 @@
 ui=true
 storage "file" {
-  path = "C:/Users/m1062222/OneDrive - Granicus/Documents/My_Projects/TerraformVault/data"
+  path = "../../../TerraformVault/data"
 }
 
 listener "tcp" {
